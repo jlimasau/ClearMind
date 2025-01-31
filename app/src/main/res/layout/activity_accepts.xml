@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Accepts">
+
+<!--    <Button
+        android:id="@+id/title1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/roundstyle"
+        android:backgroundTint="@color/purple_500"
+        android:text="@string/accepts_button"
+        android:textAllCaps="false" />-->
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <Button
+                android:id="@+id/activities"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/roundstyle"
+                android:backgroundTint="@color/purple_500"
+                android:text="@string/activities_button"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/contributing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/roundstyle"
+                android:backgroundTint="@color/purple_500"
+                android:text="@string/contributing_button"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/comparisons"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/roundstyle"
+                android:backgroundTint="@color/purple_500"
+                android:text="@string/comparisons_button"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/emotions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/roundstyle"
+                android:backgroundTint="@color/purple_500"
+                android:text="@string/emotions_button"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/pushing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/roundstyle"
+                android:backgroundTint="@color/purple_500"
+                android:text="@string/pushing_away_button"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/thoughts"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/roundstyle"
+                android:backgroundTint="@color/purple_500"
+                android:text="@string/thoughts_button"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/sensations"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:background="@drawable/roundstyle"
+                android:backgroundTint="@color/purple_500"
+                android:text="@string/sensations_button"
+                android:textAllCaps="false" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="112dp"
+                android:text="" />
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        app:adSize="BANNER"
+        app:adUnitId="ca-app-pub-7556369241256454/9939323408"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</RelativeLayout>

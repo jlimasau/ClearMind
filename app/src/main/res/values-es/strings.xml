@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Claramente</string>
+    <string name="accepts">Esta herramienta es útil para distraer. Aquí está el acrónimo de la frase Wise Mind ACEPTA. Haga clic en cada letra para revelar consejos y trucos para distraerse. Utilice esta herramienta para escapar momentáreamente de la angustia y regresar a la situación con una mejor mentalidad.</string>
+    <string name="activities">Actividades: Haz una lista de actividades que puedes realizar. Algunos ejemplos: Centra la atención en una tarea que debes realizar. Haz un poco de jardinería. Repetir afirmaciones. Ver la televisión. Limpia una habitación de tu casa. Encuentra un evento al que ir. Jugar juegos de computadora. Colecciona cosas. Tómate un baño. Sal a caminar o trotar. Navegar por internet. Escribir correos electrónicos. Hacer deporte. Tocar un instrumento. Sal a comer o come tu comida favorita. Llama o sal con un amigo. Escucha música. Construye algo. Juega a las cartas. Leer revistas, libros, o cómicos. Hacer crucigramas o Sudoku. Planifica o crea una lista de tareas pendientes. Ve a algún lugar con vistas. Ir a dar una vuelta en coche. Cuidar una mascota. Meditar. Hacer algo de ejercicio. Vestir bien. Haz algo bueno por alguien.</string>
+    <string name="contributing">Contribuir: Encuentra trabajo voluntario para hacer. Ayuda a un amigo o familiar. Sorprende a alguien con algo bonito. Regale cosas que no necesite. Llama o envía un mensaje instantáneo animando a alguien o simplemente saludando. Haz algo bueno para otra persona. Haz algo reflexivo. Esto puede ayudarle a sentirse mejor y mejorar su estado de ánimo.</string>
+    <string name="comparisons">Comparaciones: Compare cómo se siente ahora con un momento en el que se sentía diferente. Piense en las personas que se las arreglan igual o peor que usted. Piense en unos años atrás. Lo que funcione para ti.</string>
+    <string name="emotions">Emociones: Lea libros, cuentos emocionales o cartas antiguas. Mira películas emotivas. Escuche música emotiva. Trate películas de miedo, libros de chistes, comedias, o discos divertidos. Crea una lista de reproducción y escúchala para mejorar según tu estado de ánimo. Lee tarjetas de felicitación divertidas. Cualquier evento que genere emociones diferentes es ayudante.</string>
+    <string name="pushing">Empujar: Aleja la situación dejándola por un tiempo. Deja la situación mentalmente. Construye un muro imaginario entre tú y la situación. Bloquea pensamientos e imágenes de tu mente. Grita NO. Niégate a pensar en la dolorosa situación. Pon el dolor en un estante, empaquétalo, y guárdalo. Niega el problema por el momento. Recuerde que estos no resuelven la situación, ayudan con regresar con una mente mas clara.</string>
+    <string name="thoughts">Pensamientos: Prueba contar hasta 10. Cuenta los colores en un cuadro, un cartel, o fuera de la ventana; cuenta cualquier cosa. Repite mentalmente la letra de una canción. Resuelve un rompecabezas. Ver televisión o leer. Nombra objetos en una habitación.</string>
+    <string name="sensations">Sensaciones: Aprieta una pelota de goma con mucha fuerza. Escuche música muy alta. Sostenga hielo en la mano o en la boca. Piense salir bajo la lluvia o la nieve. Toma una ducha fría o caliente. Coma un dulce acidico.</string>
+    <string name="hulahoop">Lugar de control. Esta herramienta ayuda a recordar que debemos centrarnos en lo que está bajo nuestro control; Tus pensamientos, sentimientos y acciones están bajo tu control, mientras que los pensamientos, sentimientos y acciones de los demás no.</string>
+    <string name="abcde">Esta herramienta se puede utilizar para lidiar con impulsos o trastornos emocionales.</string>
+    <string name="activating">A. ¿Qué pasó?</string>
+    <string name="belief">B. ¿Qué pensamiento irracional podría estar diciéndome sobre lo que sucedio? ex.frustración, etc.</string>
+    <string name="consequence">C. ¿Cómo me hace sentir la creencia irracional? ex. enojado, triste, ansiedad, vergüenza, evitación, etc.</string>
+    <string name="dispute">D. Convierte tu creencia irracional en una pregunta. Ex. ¿Realmente… tengo pruebas de…? </string>
+    <string name="effect">E. El meta seria tener pensamientos racionales y emociones moderadas. Por ejemplo: Este problema no durará para siempre, etc.</string>
+    <string name="activating_event">&#160;Activacion de evento:&#160;</string>
+    <string name="belief_about_event_irrational">&#160;Creencia irracional sobre un evento:&#160;</string>
+    <string name="consequence_of_irrational_belief">&#160;Consecuencia de la creencia irracional:&#160;</string>
+    <string name="dispute_my_irrational_belief">&#160;Disputa la creencia irracional:&#160;</string>
+    <string name="effective_change_in_my_thinking">&#160;Efectivo cambio en mi pensamiento:&#160;</string>
+    <string name="try_it_on_your_own_practice_here">Pruebalo, practique aquí.</string>
+    <string name="wise_mind_accepts">  &#160; Sabia Mente ACEPTA &#160;  </string>
+    <string name="hula_hoop">&#160;Baile de aro&#160;</string>
+    <string name="abcde_button">ABCDE</string>
+    <string name="activities_button">Actividades</string>
+    <string name="contributing_button">Contribuir</string>
+    <string name="comparisons_button">Comparaciones</string>
+    <string name="emotions_button">Emociones</string>
+    <string name="pushing_away_button">Alejando</string>
+    <string name="thoughts_button">&#160;Pensamientos&#160;</string>
+    <string name="sensations_button">&#160;Sensaciones&#160;</string>
+    <string name="tools">&#160;Herramientas&#160;</string>
+    <string name="about">Acerca De</string>
+    <string name="toast1">"Puede respirar conmigo para ayudar su mente."</string>
+    <string name="quickstart">&#160;Inicio Rapido&#160;</string>
+    <string name="quickstart_input_text">Ingrese algunas actividades una a la vez</string>
+    <string name="quickstart_text">Si tiene problemas para comenzar o está lidiando con un impulso o malestar emocional, prepare esta herramienta para que pueda elegir rápidamente una actividad para usted. También esta conocido como frasco de urgencia. Agregue algunas actividades que sean más útiles y toque el botón Alazar cuando necesite instrucciones. Después de completar una actividad, puede marcar o eliminar tocándola y seleccionándola en el menú.</string>
+    <string name="roll">Alazar</string>
+    <string name="enter">Ingresar</string>
+    <string name="about2">Hecho por Graduado de UCSD en ciencias Cognitivas con especialización en Neurociencia Jeffrey</string>
+    <string name="about1">Puedes respirar con Marimon!</string>
+    <string name="pomodoroText">Ha comenzado una cuenta atrás en la notificación. Utilice esta herramienta para concentrarse en una tarea durante un período de tiempo antes de tomar un descanso para reiniciar. Los impulsos y los trastornos emocionales tienen límites de tiempo. Esta herramienta se puede utilizar para resistir un impulso</string>
+    <string name="ActivatingEvent">Evento de activacion</string>
+    <string name="accepts_button">Aceptas</string>
+    <string name="abcdeexplanation">Escribe tu respuesta en las áreas grises. Esta herramienta se puede utilizar para lidiar con impulsos o trastornos emocionales. Presione guardar y vea sus entradas desplazándose hacia abajo. Mantenga presionado para eliminar una entrada.</string>
+    <string name="list1">Primera Lista</string>
+    <string name="list2">Segunda Lista</string>
+    <string name="list3">Tercera Lista</string>
+    <string name="myentries">Mis Entradas</string>
+    <string name="MyEntries">Su lista se guardó en Mis Entradas.</string>
+    <string name="example1">Camine afuera</string>
+    <string name="example2">Toma agua</string>
+    <string name="example3">Lee un libro</string>
+    <string name="emptytoast">Complete cada entrada y luego presione guardar</string>
+    <string name="save">Guardar</string>
+    <string name="reminder">Recuerdo</string>
+    <string name="inputhint">Escriba sus pros y contras</string>
+    <string name="cons">Contras</string>
+    <string name="prosncons">&#160;Pros y Contras&#160;</string>
+    <string name="pastentries">Entradas</string>
+    <string name="save1">Nuevo</string>
+    <string name="setTitle">Escriba un titulo</string>
+    <string name="gratitude">Gratitud</string>
+    <string name="gratitude_input_text">Escribe las cosas por las que estás agradecido, una a la vez</string>
+    <string name="language">English</string>
+    <string name="prosncons_text">"Haga clic en el botón \"+\" para crear y titular una nueva lista. A continuación, escriba los pros y los contras de uno en uno y seleccione el botón correspondiente a la derecha. Mantenga presionado cualquier entrada o lista si desea eliminarla. También conocido como análisis de costo-beneficio; Utilice esta herramienta para decidir si usar o no y para tomar decisiones lógicas. Por ejemplo, puedes escribir los pros y los contras de hacer y no hacer algo. "</string>
+    <string name="abcdesavedata_text">Vea sus entradas aquí. Mantenga presionado para eliminar sus entradas.</string>
+    <string name="proexample1">El café puede aumentar la energía</string>
+    <string name="proexample2">El ejercicio es bueno para la salud.</string>
+    <string name="proexample3">El ejercicio te hace más fuerte.</string>
+    <string name="conexample1">El ejercicio puede hacer que te duela.</string>
+    <string name="MainActivity_text">La terapia dialéctica conductual ha sido ampliamente investigada y ha demostrado ser un tratamiento eficaz para una amplia gama de afecciones de salud mental. Muchos ensayos controlados aleatorios y otros estudios rigurosos han respaldado su eficacia.</string>
+    <string name="MainActivity_backbutton">Haga clic en ATRÁS de nuevo para salir</string>
+    <string name="gratitude_text">También se conoce como Jerarquía de Valores. Utilice esta lista para priorizar lo que es importante.</string>
+    <string name="tools_text">Intente de usar la heramienta Inicio Rapido con Pomodoro</string>
+    <string name="emptytitle">Porfavor escribe un titulo</string>
+    <string name="emptyinput_quickstart">Porfavor escribe una actividad</string>
+    <string name="emptycon">Porfavor escribe un contra</string>
+    <string name="emptypro">Porfavor escribe un pro</string>
+    <string name="copeaheadbutton">&#160;Hacer Frente&#160;</string>
+    <string name="step1">Describa la situación</string>
+    <string name="step1input">Algo que te hace sentir una emoción abrumadora.</string>
+    <string name="step2">Elige una habilidad, estrategia o técnica dbt.</string>
+    <string name="step2input">Ejemplos: atención plena, prueba de realidad, distracción, etc</string>
+    <string name="step3">Ensayar</string>
+    <string name="step3input">Imagina lo que harías en esta situación y cómo aplicarías tu estrategia.</string>
+    <string name="CopeAheadSaveData_text">Usa esta página para ensayar. Recuerde hacer algo tranquilizador después. Mantenga presionado para eliminar.</string>
+    <string name="copeahead_text">Cope Ahead is a Dialectical Behavior Therapy that helps manage anxiety-provoking situations by rehearsing skills, strategies, and techniques and using them to handle potential stressors and situations effectively.</string>
+
+
+    -->
+
+
+</resources>
