@@ -49,7 +49,7 @@ public class DialogFragment2 extends AppCompatDialogFragment {
     ArrayAdapter<String> adapter;
     ListView myListView;
 
-
+//This dialog is for editing the title
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
@@ -65,7 +65,7 @@ public class DialogFragment2 extends AppCompatDialogFragment {
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("shared preferences", MODE_PRIVATE);
 
 
-        currentTab = sharedPreferences.getString("currentTab", null);
+        currentTab = sharedPreferences.getString("currentTab", null).replace("\u200E ", "");
 
 
         input.setText(currentTab);
@@ -111,9 +111,9 @@ public class DialogFragment2 extends AppCompatDialogFragment {
                             editor.putString("changeTitle", input.getText().toString());
 
 
-                            titles.set(titles.indexOf(String.valueOf(currentTab)), String.valueOf(input.getText()));
+                            titles.set(titles.indexOf(String.valueOf(currentTab)), String.valueOf(input.getText())+"\u200E");
                             System.out.println("TITLES: " + titles);
-                            currentTitle = String.valueOf(input.getText());
+                            currentTitle = String.valueOf(input.getText()) + "\u200E";
                             saveData();
                             whichbutton = titles.indexOf(currentTitle);
                             editor.putString("CT", currentTitle);

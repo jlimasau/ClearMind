@@ -39,14 +39,17 @@ public class DialogFragment extends AppCompatDialogFragment implements DialogInt
     ArrayList<String> myArrayList = new ArrayList<>();
     String currentTab;
 
-
+//This dialog is for pressing the plus button
 
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+       /* if(currentTitle == null){
+            currentTitle =
+        }*/
 
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("shared preferences", MODE_PRIVATE);
-        currentTab = sharedPreferences.getString(currentTitle, null);
+       // currentTab = sharedPreferences.getString(currentTitle, null);
         input = new EditText(getActivity());
         input.setMaxLines(1);
         input.setInputType(InputType.TYPE_CLASS_TEXT);
@@ -76,10 +79,10 @@ public class DialogFragment extends AppCompatDialogFragment implements DialogInt
                             if (titles == null) {
                                 titles = new ArrayList<>();
                             }
-
-                            titles.add(String.valueOf(input.getText()));
+                            currentTitle = String.valueOf(input.getText()) + "\u200E";
+                            titles.add(currentTitle);
                             System.out.println(titles);
-                            currentTitle = String.valueOf(input.getText());
+
                             SharedPreferences.Editor editor = sharedPreferences.edit();
                             editor.putString("CT", currentTitle);
                             editor.commit();

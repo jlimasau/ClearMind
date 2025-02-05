@@ -58,6 +58,7 @@ public class page1 extends ListFragment {
     int changeenterbtnaction1 = 0;
 
     int currentpos1;
+    String newString;
 
 
 
@@ -70,7 +71,7 @@ public class page1 extends ListFragment {
 
         View view = inflater.inflate(R.layout.fragment_page1, container, false);
         //String data = getArguments().getString("key");
-        Integer num = getArguments().getInt("number");
+        int num = getArguments().getInt("number");
       //  textView.setText(data);
 
 
@@ -97,10 +98,12 @@ public class page1 extends ListFragment {
         if(num==titles.size()){
 
         }
+
         else{
 
 
-        String json5 = sharedPreferences.getString(titles.get(num), null);
+            String var1 = String.valueOf(titles.get(num));
+        String json5 = sharedPreferences.getString(var1, null);
 
         Type type5 = new TypeToken<ArrayList>() {}.getType();
         myArrayList = gson5.fromJson(json5, type5);
@@ -170,6 +173,7 @@ public class page1 extends ListFragment {
                     switch (menuItem.getTitle().toString()){
                         case "✔" :
                                System.out.println("check");
+
                             if (tempString.contains("✘") == true || tempString.contains("✔")) {
                                 String newString3 = tempString.replace("⬅", "");
 
@@ -182,10 +186,16 @@ public class page1 extends ListFragment {
                                // adapter.insert(newString1, position);
                             } else {
                                 String newString2 = tempString.replace("⬅", "");
-                                String newString = "✔" + newString2;
+                                newString = "✔" + newString2;
                                 myArrayList.remove(adapter.getItem(position));
                                 myArrayList.add(position, newString);
                             }
+                            SharedPreferences.Editor editor = sharedPreferences.edit();
+
+
+                            System.out.println("position after checkmark is: " + position);
+                            editor.putInt(newString ,position);
+                            editor.apply();
                             saveData();
                            setListAdapter(adapter);
                            System.out.println("Position" + position + "array" + myArrayList);
@@ -237,10 +247,10 @@ public class page1 extends ListFragment {
 /*
                             SharedPreferences sharedPreferences = getActivity().getSharedPreferences("shared preferences", Context.MODE_PRIVATE);
 */
-                            SharedPreferences.Editor editor = sharedPreferences.edit();
-                            editor.putInt("btnaction1", changeenterbtnaction1);
-                            editor.putInt("currentpos1", currentpos1);
-                            editor.apply();
+                            SharedPreferences.Editor editor1 = sharedPreferences.edit();
+                            editor1.putInt("btnaction1", changeenterbtnaction1);
+                            editor1.putInt("currentpos1", currentpos1);
+                            editor1.apply();
                             //text1 = getActivity().findViewById(R.id.inputtext);
                             //text1.setEnabled(true);
 

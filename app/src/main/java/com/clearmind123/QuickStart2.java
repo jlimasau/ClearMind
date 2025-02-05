@@ -46,6 +46,9 @@ import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
 import java.util.Random;
 
 public class QuickStart2 extends AppCompatActivity {
@@ -65,6 +68,10 @@ public class QuickStart2 extends AppCompatActivity {
     String currentTab;
 
     ArrayList<String> myArrayList = new ArrayList<>();
+    ArrayList<String> tempArray = new ArrayList<>();
+    ArrayList<String> tempArray1 = new ArrayList<>();
+
+    ArrayList<String> orderedArray = new ArrayList<>();
     String newtitle;
     Integer position2;
     AdView mAdView;
@@ -77,6 +84,9 @@ public class QuickStart2 extends AppCompatActivity {
     int scrollvar = 0;
     int q = 0;
     int tabpos;
+    String currentitem;
+    int position3;
+    int position;
 
 
     @Override
@@ -84,6 +94,15 @@ public class QuickStart2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quick_start2);
 
+
+
+
+
+
+
+        // use current title to tie together the current array and the order of the array
+        //tie together the actual string of the array with the number
+        //shared pref thats titled by the string that contains the int position
 
 
 
@@ -117,8 +136,9 @@ public class QuickStart2 extends AppCompatActivity {
 
 
         if (isFirstRun && titles.size()==0) {
-            currentTitle = "Example";
             titles.add("Example");
+            currentTitle = "Example";
+
             editor.putString("CT", currentTitle);
             editor.commit();
             saveTitle();
@@ -126,8 +146,16 @@ public class QuickStart2 extends AppCompatActivity {
 
             loadList();
             adapter.add(getResources().getString(R.string.example1));
+            editor.putInt(getResources().getString(R.string.example1) ,1);
+
             adapter.add(getResources().getString(R.string.example2));
+            editor.putInt(getResources().getString(R.string.example2) ,2);
+
             adapter.add(getResources().getString(R.string.example3));
+            editor.putInt(getResources().getString(R.string.example3) ,3);
+
+            editor.apply();
+            editor.commit();
             saveData();
             viewPager2.setAdapter(adapter1);
            // viewPager2.setCurrentItem(tab.getPosition(), false);
@@ -136,7 +164,18 @@ public class QuickStart2 extends AppCompatActivity {
             getSharedPreferences("shared preferences", MODE_PRIVATE).edit()
                     .putBoolean("isFirstRun", false).commit();
 
+            //is missing info that enter a new tab has
+
+
+
+
+
         }
+
+       // tempArray1 = (ArrayList<String>) myArrayList.clone();
+
+
+
 
 
 
@@ -184,6 +223,11 @@ public class QuickStart2 extends AppCompatActivity {
                 if(tab.getPosition() == titles.size()){
                     System.out.println("THIS ONE!");
 
+               /*     currentTitle = tab.getText().toString();
+                    //set current title in sharedprefs
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putString("CT", currentTitle);
+                    editor.apply();*/
                     openDialog();
 
                 }
@@ -249,6 +293,8 @@ public class QuickStart2 extends AppCompatActivity {
                             }
                         }
                         if (y >= bound) {
+
+
                             Toast.makeText(QuickStart2.this, "You Finished!", Toast.LENGTH_LONG).show();
                             return;
                         }
@@ -283,6 +329,16 @@ public class QuickStart2 extends AppCompatActivity {
                         }
                     }
                 });
+
+   /*             for(int w=0; w<myArrayList.size(); w++){
+                    if(sharedPreferences.getInt(tempArray1.get(w).replace("✔","").replace("✘","").replace("⬅","").toString(), 99) == 99){
+                        SharedPreferences.Editor editor4 = sharedPreferences.edit();
+
+                        editor4.putInt(myArrayList.get(w), myArrayList.indexOf(myArrayList.get(w))-1);
+                        editor4.commit();
+                    }
+                }*/
+
 
 
             }
@@ -347,10 +403,15 @@ public class QuickStart2 extends AppCompatActivity {
                         //  int positem2 = ls.getBottom();
                         System.out.println("THIS!!!!!!!!!");
                         System.out.println("arraywas: " +  myArrayList);
-
+                        String object1 = String.valueOf(text1.getText());
                         adapter.add(String.valueOf(text1.getText()));
                         text1.setText("");
                         saveData();
+                        //savePos();
+                        int position123 = myArrayList.size();
+                        editor.putInt(object1 ,position123);
+                        editor.apply();
+                        System.out.println("Position is: " + position123 + " Variable is: " + object1);
 
                         viewPager2.setAdapter(adapter1);
                         viewPager2.setCurrentItem(tabpos, false);
@@ -429,13 +490,16 @@ public class QuickStart2 extends AppCompatActivity {
                     @Override
                     public boolean onLongClick(View v) {
                         TooltipCompat.setTooltipText(v, null);
-                        //System.out.println(v.getTag());
+                        //
                         currentTab = tabLayout.getTabAt((int) v.getTag()).getText().toString();
+
                        Integer previousTab = (int) v.getTag()-1;
                         {
                             PopupMenu popupMenu = new PopupMenu(QuickStart2.this, v);
                             popupMenu.getMenu().add("Edit");
                             popupMenu.getMenu().add("Delete");
+                            popupMenu.getMenu().add("Sort by Status");
+                            popupMenu.getMenu().add("Sort by Recency");
 
                             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                                 @Override
@@ -452,14 +516,69 @@ public class QuickStart2 extends AppCompatActivity {
                                             break;
 
                                         case "Delete":
+                                            if(titles.indexOf(currentTab) == 0){
 
-                                            String btntext = String.valueOf(tabStrip.getChildAt(i));
-                                            System.out.println(btntext);
-                                            titles.remove(titles.indexOf(currentTab));
-                                            saveTitle();
+
+
+                                                System.out.println("THISSSSS FARRRRR");
+                                                titles.remove(currentTab);
+                                                saveTitle();
+                                                //currentTitle = (String) titles.get(0);
+                                                whichbutton = 0;
+                                                SharedPreferences.Editor editor2 = sharedPreferences.edit();
+                                               // editor2.putString("CT", currentTitle);
+                                                editor2.putInt("whichbutton", whichbutton);
+                                                editor2.apply();
+                                         /*       tabLayout.getTabAt(previousTab).select();
+                                                Intent intent = getIntent();
+                                                startActivity(intent);*/
+                                              /*  saveTitle();*/
+                                                /*if(titles.size()==1){
+                                                    plusTab.select();
+
+                                                }*/
+                                            }
+                                            else{
+
+                                                titles.remove(titles.indexOf(currentTab));
+                                                saveTitle();
 
 
                                                 currentTitle = (String) titles.get(titles.size() - 1);
+
+                                                whichbutton = 0;
+                                                SharedPreferences.Editor editor2 = sharedPreferences.edit();
+                                                editor2.putString("CT", currentTitle);
+                                                editor2.putInt("whichbutton", whichbutton);
+                                                editor2.apply();
+
+                                                tabLayout.getTabAt(previousTab).select();
+                                                // tabLayout.getChildAt((int) v.getTag()-1).setSelected(true);
+
+
+                                            } Intent intent = getIntent();
+                                            startActivity(intent);
+                                            //if example then delete this way else
+                                      /*      if(currentTab == "Example"){
+                                                System.out.println("THIS FAR");
+                                                *//*titles.remove("Example");
+                                                saveTitle();*//*
+
+                                                //titles.remove(titles.indexOf(currentTab));
+                                            }
+                                            else{*/
+
+
+
+
+                                           // String btntext = String.valueOf(tabStrip.getChildAt(i));
+                                           // System.out.println(btntext);
+
+                                     /*       titles.remove(titles.indexOf(currentTab));
+                                            saveTitle();
+
+
+                                            currentTitle = (String) titles.get(titles.size() - 1);
 
                                             whichbutton = 0;
                                             SharedPreferences.Editor editor2 = sharedPreferences.edit();
@@ -470,8 +589,105 @@ public class QuickStart2 extends AppCompatActivity {
                                             tabLayout.getTabAt(previousTab).select();
                                            // tabLayout.getChildAt((int) v.getTag()-1).setSelected(true);
                                             Intent intent = getIntent();
-                                            startActivity(intent);
+                                            startActivity(intent);*/
+                                    //}
+                                            break;
+                                        case "Sort by Status":
 
+                                            loadList();
+
+
+
+                                            //if first time sorting array make a copy of the array
+                                           // orderedArray = myArrayList;
+
+                                            for (int j = myArrayList.size()-1; j>=0; j--) {
+                                                if(myArrayList.get(j).contains("✘")) {
+                                                    tempArray.add(0,myArrayList.get(j));
+
+                                                }
+                                            }
+                                            for (int i = myArrayList.size()-1; i>=0; i--) {
+                                                System.out.println("I is: " + i);
+                                                if(myArrayList.get(i).contains("✔")){
+                                                    tempArray.add(0,myArrayList.get(i));
+
+                                                }
+                                            }
+                                            for (int k = myArrayList.size()-1; k>=0; k--) {
+                                                if(!myArrayList.get(k).contains("✔") && !myArrayList.get(k).contains("✘")){
+                                                    tempArray.add(0,myArrayList.get(k));
+                                                }
+                                            }
+                                            myArrayList = tempArray;
+                                            tempArray = new ArrayList<>();
+
+                                            System.out.println(tempArray);
+                                            saveData();
+                                            viewPager2.setAdapter(adapter1);
+                                            viewPager2.setCurrentItem(tabpos, false);
+
+
+
+                                            break;
+                                        case "Sort by Recency":
+                                            loadList();
+                                            tempArray = (ArrayList<String>) myArrayList.clone();
+
+
+
+
+
+
+                                            for (int l = 0; l<myArrayList.size(); l++) {
+
+                                                position3 = sharedPreferences.getInt(tempArray.get(l).replace("✔","").replace("✘","").replace("⬅","").toString(), 0)-1;
+
+                                                System.out.println("L is: " + l + " Position is: " + position3 + " Object is: " + tempArray.get(l).toString());
+                                                System.out.println(" temparray IS: " + tempArray.toString());
+                                               // System.out.println(" ARRAY1 IS: " + tempArray.toString());
+
+
+                                                myArrayList.set(position3, tempArray.get(l).toString());
+                                                //tempArray.add("");
+
+                                          /*      if(position3>tempArray.size()){
+                                                    tempArray.add(myArrayList.get(l).toString());
+                                                }
+                                                else{
+                                                    tempArray.set(position3, myArrayList.get(l).toString());
+
+                                                }*/
+                                                System.out.println(" ARRAY IS: " + myArrayList.toString());
+                                    }
+                                        /*
+
+
+
+                                                System.out.println("L is: " + l + " Position is: " + position3 + " Object is: " + myArrayList.get(l).toString());
+
+
+                                            }*/
+
+
+
+
+                                            /*    if( p == position3){
+                                                    if(position3>tempArray.size()){
+                                                        tempArray.add((tempArray.size()), myArrayList.get(l).toString());
+                                                    }
+                                                    else{
+                                                    tempArray.add(position3, myArrayList.get(l).toString());
+                                                    }
+                                                }
+                                            }*/
+
+
+                                            //myArrayList = tempArray;
+                                            tempArray = new ArrayList<>();
+                                            saveData();
+                                            viewPager2.setAdapter(adapter1);
+                                            viewPager2.setCurrentItem(tabpos, false);
                                             break;
                                     }
 
