@@ -164,7 +164,7 @@ public class QuickStart2 extends AppCompatActivity {
             getSharedPreferences("shared preferences", MODE_PRIVATE).edit()
                     .putBoolean("isFirstRun", false).commit();
 
-            //is missing info that enter a new tab has
+
 
 
 
@@ -217,6 +217,7 @@ public class QuickStart2 extends AppCompatActivity {
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
+
 
 
 
@@ -345,6 +346,11 @@ public class QuickStart2 extends AppCompatActivity {
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
 
+                editor.putInt("btnaction1", 0);
+                editor.commit();
+
+
+
 
             }
             @Override
@@ -374,6 +380,10 @@ public class QuickStart2 extends AppCompatActivity {
                     //viewPager2.setAdapter(adapter1);
 
                 }
+
+                //when you slide from one page to another the enterbtnaction should reset
+
+
             }
         });
 
@@ -407,9 +417,9 @@ public class QuickStart2 extends AppCompatActivity {
                         adapter.add(String.valueOf(text1.getText()));
                         text1.setText("");
                         saveData();
-                        //savePos();
+                        //savePos(); along with the title
                         int position123 = myArrayList.size();
-                        editor.putInt(object1 ,position123);
+                        editor.putInt(object1 + currentTitle,position123);
                         editor.apply();
                         System.out.println("Position is: " + position123 + " Variable is: " + object1);
 
@@ -641,9 +651,10 @@ public class QuickStart2 extends AppCompatActivity {
 
                                             for (int l = 0; l<myArrayList.size(); l++) {
 
-                                                position3 = sharedPreferences.getInt(tempArray.get(l).replace("✔","").replace("✘","").replace("⬅","").toString(), 0)-1;
+                                                position3 = sharedPreferences.getInt(tempArray.get(l).replace("✔","").replace("✘","").replace("⬅","").toString() + currentTitle, 0)-1;
 
-                                                System.out.println("L is: " + l + " Position is: " + position3 + " Object is: " + tempArray.get(l).toString());
+
+                                                System.out.println("L is: " + l + " Position is: " + position3 + " Object is: " + tempArray.get(l).replace("✔","").replace("✘","").replace("⬅","").toString() + currentTitle);
                                                 System.out.println(" temparray IS: " + tempArray.toString());
                                                // System.out.println(" ARRAY1 IS: " + tempArray.toString());
 

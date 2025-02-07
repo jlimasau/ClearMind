@@ -4,7 +4,9 @@ import static androidx.core.app.AlarmManagerCompat.setAlarmClock;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.app.ActivityCompat;
+import androidx.core.os.LocaleListCompat;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -44,6 +46,12 @@ import android.widget.Toast;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.tasks.Task;
+import com.google.android.play.core.review.ReviewException;
+import com.google.android.play.core.review.ReviewInfo;
+import com.google.android.play.core.review.ReviewManager;
+import com.google.android.play.core.review.ReviewManagerFactory;
+import com.google.android.play.core.review.model.ReviewErrorCode;
 
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -74,6 +82,8 @@ public class MainActivity extends AppCompatActivity {
     String lang;
     Menu optionsMenu;
 
+    private ReviewInfo reviewInfo;
+    private ReviewManager manager;
 
     @SuppressLint({"MissingPermission", "MissingInflatedId"})
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,12 +103,15 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+        activateReviewInfo();
+
+
         abouttext = findViewById(R.id.textView);
         Button about = findViewById(R.id.button2);
         Button tools = findViewById(R.id.button);
         Button reminder = findViewById(R.id.button3);
 
-        Button language = findViewById(R.id.language);
+       //Button language = findViewById(R.id.language);
 
         startAnimation1();
 
@@ -107,7 +120,9 @@ public class MainActivity extends AppCompatActivity {
 
 
         tools.setOnClickListener(view -> openActivityTools());
-        locale = MainActivity.this.getResources().getConfiguration().locale;
+
+
+      /*  locale = MainActivity.this.getResources().getConfiguration().locale;
         lang = locale.toString();
 
         System.out.println(lang);
@@ -150,6 +165,10 @@ public class MainActivity extends AppCompatActivity {
                     
                 }
                 else{
+
+
+
+
                     //lang = "es";
                     System.out.println("spanish");
 
@@ -160,19 +179,33 @@ public class MainActivity extends AppCompatActivity {
                     config.locale = locale;
                     MainActivity.this.getResources().updateConfiguration(config, MainActivity.this.getResources().getDisplayMetrics());
 
+                    //AppCompatDelegate.setApplicationLocales(LocaleListCompat.forLanguageTags("es"));
+
                     Intent intent = new Intent(MainActivity.this, MainActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
                 }
             }
-        });
+        });*/
 
 
 
         about.setOnClickListener(view -> {
+
+            //showReviewFlow();
             showhide=!showhide;
 
             if (showhide == true) {
+
+                startReviewFlow();
+
+
+
+
+
+
+
+
 
 
             abouttext.setClickable(true);
@@ -359,9 +392,46 @@ public class MainActivity extends AppCompatActivity {
 
 
         //backs up sharedpref
-        //BackupManager.dataChanged("com.clearmind123");
+        BackupManager.dataChanged("com.clearmind123");
 
     }
+
+
+
+
+
+    void activateReviewInfo(){
+        manager = ReviewManagerFactory.create(this);
+        Task<ReviewInfo> managerInfoTask = manager.requestReviewFlow();
+        managerInfoTask.addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                // We can get the ReviewInfo object
+                reviewInfo = task.getResult();
+            } else {
+                // There was some problem, log or handle the error code.
+
+                Toast.makeText(this, "Review failed to start", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+
+    private void startReviewFlow(){
+        if(reviewInfo != null){
+            Task<Void> flow = manager.launchReviewFlow(MainActivity.this, reviewInfo);
+            flow.addOnCompleteListener(task -> {
+                //Toast.makeText(this, "Review Successful", Toast.LENGTH_LONG).show();
+
+                // The flow has finished. The API does not indicate whether the user
+                // reviewed or not, or even whether the review dialog was shown. Thus, no
+                // matter the result, we continue our app flow.
+            });
+        }
+        else{
+
+        }
+    }
+
 
     private void createNotificationChannel() {
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
