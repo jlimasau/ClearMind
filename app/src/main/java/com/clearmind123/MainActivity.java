@@ -84,6 +84,8 @@ public class MainActivity extends AppCompatActivity {
 
     private ReviewInfo reviewInfo;
     private ReviewManager manager;
+    String languageToLoad;
+
 
     @SuppressLint({"MissingPermission", "MissingInflatedId"})
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,6 +93,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
+
+    /*    LocaleListCompat aLocale = LocaleListCompat.forLanguageTags(locale.getLanguage());
+        AppCompatDelegate.setApplicationLocales(aLocale);*/
 
         new Thread(
                 () -> {
@@ -111,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
         Button tools = findViewById(R.id.button);
         Button reminder = findViewById(R.id.button3);
 
-       //Button language = findViewById(R.id.language);
+       Button language = findViewById(R.id.language1);
 
         startAnimation1();
 
@@ -122,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
         tools.setOnClickListener(view -> openActivityTools());
 
 
-      /*  locale = MainActivity.this.getResources().getConfiguration().locale;
+        locale = MainActivity.this.getResources().getConfiguration().locale;
         lang = locale.toString();
 
         System.out.println(lang);
@@ -144,7 +149,10 @@ public class MainActivity extends AppCompatActivity {
                     Locale.setDefault(locale);
                     Configuration config = new Configuration();
                     config.locale = locale;
-                    MainActivity.this.getResources().updateConfiguration(config, MainActivity.this.getResources().getDisplayMetrics());
+
+                    LocaleListCompat aLocale = LocaleListCompat.forLanguageTags(locale.getLanguage());
+                    AppCompatDelegate.setApplicationLocales(aLocale);
+                   // MainActivity.this.getResources().updateConfiguration(config, MainActivity.this.getResources().getDisplayMetrics());
 
                     Intent intent = new Intent(MainActivity.this, MainActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -157,7 +165,10 @@ public class MainActivity extends AppCompatActivity {
                     Locale.setDefault(locale);
                     Configuration config = new Configuration();
                     config.locale = locale;
-                    MainActivity.this.getResources().updateConfiguration(config, MainActivity.this.getResources().getDisplayMetrics());
+
+                    LocaleListCompat aLocale = LocaleListCompat.forLanguageTags(locale.getLanguage());
+                    AppCompatDelegate.setApplicationLocales(aLocale);
+                    //MainActivity.this.getResources().updateConfiguration(config, MainActivity.this.getResources().getDisplayMetrics());
 
                     Intent intent = new Intent(MainActivity.this, MainActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -172,12 +183,17 @@ public class MainActivity extends AppCompatActivity {
                     //lang = "es";
                     System.out.println("spanish");
 
-                    String languageToLoad = "es";
-                    Locale locale = new Locale(languageToLoad);
+                    languageToLoad = "es";
+                    locale = new Locale(languageToLoad);
                     Locale.setDefault(locale);
                     Configuration config = new Configuration();
                     config.locale = locale;
-                    MainActivity.this.getResources().updateConfiguration(config, MainActivity.this.getResources().getDisplayMetrics());
+
+                    LocaleListCompat aLocale = LocaleListCompat.forLanguageTags(locale.getLanguage());
+                    AppCompatDelegate.setApplicationLocales(aLocale);
+
+
+                   // MainActivity.this.getResources().updateConfiguration(config, MainActivity.this.getResources().getDisplayMetrics());
 
                     //AppCompatDelegate.setApplicationLocales(LocaleListCompat.forLanguageTags("es"));
 
@@ -186,7 +202,7 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
             }
-        });*/
+        });
 
 
 
