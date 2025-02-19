@@ -63,7 +63,7 @@ import java.util.concurrent.TimeUnit;
 
 //update abcde
 //update marimon zoom
-//
+// key is 6 characters
 
 public class MainActivity extends AppCompatActivity {
 

@@ -10,63 +10,9 @@ android {
         applicationId "com.clearmind123"
         minSdk 21
         targetSdk 34
-        versionCode 13
-        versionName "13"
+        versionCode 14
+        versionName "14"
 
-        //ver 5 added definition of locus to eng and span strings
-        //updated hulahoop image
-        //changed purple color
-        //fixed textinput and ad in abcde
-        //fixed buttons and input colors
-        //ver 7 fixed scrollbar
-        //added spacing between buttons
-        //layout adjustments
-        //edited strings
-
-        //ver8 added breathing marimon
-        //cleaned up code
-        //updated spanish translations for buttons
-        //updated gradle dependencies
-        //removed actionbar
-        //fixed typos in eng and spanish
-        //fixed button padding
-        //added marimon toast
-        //
-        //ver9 added padding to text fields
-        //
-        //ver10 added button title to strings
-        //added quickstart
-
-        //broadcast, marimon zoom fix, title to accepts, fixes to abcde and ability to add lists, pomodoro
-
-        //11 added multiple lists to quickstart plus spanish translation, added padding to fix scroll in abcde
-        //11 updated pomodoro, now connects to clock app, fixed back button in tools,
-        //12 hidden countdown timer
-        //13 added examples to quickstart, divided abcde into two activities, pomodoro opens up, added toast for empty abcde fields
-
-
-        //13 added reminder
-        //13 quickstart now returns to last list opened
-        //13 added color to quickstart buttons
-        //back button on accidental pomodoro works
-        //added padding to bottom of quickstart and pros and cons
-        //13
-
-
-
-        //13
-        /*
-
-
-        Added change language button.
-        Added Questionmark button.
-        Added Title buttons.
-        Added gratitude tool.
-        Added Pros and Cons tool.
-        Added Reminder button.
-        Many fixes.
-
-         */
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -99,6 +45,9 @@ dependencies {
     implementation "androidx.viewpager2:viewpager2:1.1.0"
 
     implementation 'com.google.android.play:review:2.0.2'
+
+
+
 
 
 }
