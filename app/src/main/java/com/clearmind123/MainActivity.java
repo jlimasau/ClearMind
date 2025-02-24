@@ -291,6 +291,7 @@ public class MainActivity extends AppCompatActivity {
             TimePickerDialog timePickerDialog = new TimePickerDialog(this, style, onTimeSetListener,hour,minute,false);
             timePickerDialog.setTitle(R.string.reminder1);
             //timePickerDialog.
+
             timePickerDialog.show();
 
 
