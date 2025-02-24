@@ -42,7 +42,7 @@
     <string name="enter">Ingresar</string>
     <string name="about2">Hecho por Graduado de UCSD en ciencias Cognitivas con especialización en Neurociencia Jeffrey</string>
     <string name="about1">Puedes respirar con Marimon!</string>
-    <string name="pomodoroText">Ha comenzado una cuenta atrás en la notificación. Utilice esta herramienta para concentrarse en una tarea durante un período de tiempo antes de tomar un descanso para reiniciar. Los impulsos y los trastornos emocionales tienen límites de tiempo. Esta herramienta se puede utilizar para resistir un impulso</string>
+    <string name="pomodoroText">Una cuenta de 25 minutos va a comenzar. Utilice esta herramienta para concentrarse en una tarea durante un período de tiempo antes de tomar un descanso para reiniciar. Los impulsos y los trastornos emocionales tienen límites de tiempo. Esta herramienta se puede utilizar para resistir un impulso</string>
     <string name="ActivatingEvent">Evento de activacion</string>
     <string name="accepts_button">Aceptas</string>
     <string name="abcdeexplanation">Escribe tu respuesta en las áreas grises. Esta herramienta se puede utilizar para lidiar con impulsos o trastornos emocionales. Presione guardar y vea sus entradas desplazándose hacia abajo. Mantenga presionado para eliminar una entrada.</string>
@@ -89,6 +89,7 @@
     <string name="step3input">Imagina lo que harías en esta situación y cómo aplicarías tu estrategia.</string>
     <string name="CopeAheadSaveData_text">Usa esta página para ensayar. Recuerde hacer algo tranquilizador después. Mantenga presionado para eliminar.</string>
     <string name="copeahead_text">Cope Ahead is a Dialectical Behavior Therapy that helps manage anxiety-provoking situations by rehearsing skills, strategies, and techniques and using them to handle potential stressors and situations effectively.</string>
+    <string name="reminder1">Establece un recordatorio diario para usar ClearMind</string>
 
 
     -->

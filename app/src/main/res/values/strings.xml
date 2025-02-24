@@ -42,7 +42,7 @@
     <string name="enter">Enter</string>
     <string name="about2">Made by UCSD Graduate in Cognitive Science with specialization in Neuroscience Jeffrey</string>
     <string name="about1">You can breathe along with Marimon!</string>
-    <string name="pomodoroText">A countdown has started in the notification. Use this tool to focus on one task for a period of time before taking a break to reset. Remember that urges and emotional upsets have time limits. This tool can be used to outlast either.</string>
+    <string name="pomodoroText">A countdown of 25 minutes will start. Use this tool to focus on one task for a period of time before taking a break to reset. Remember that urges and emotional upsets have time limits. This tool can be used to outlast either.</string>
     <string name="ActivatingEvent">Activating Event</string>
     <string name="accepts_button">Accepts</string>
     <string name="abcdeexplanation">Write your responses in the grey areas. This tool can be used to deal with urges or emotional upsets. Save and view your entries by using the buttons below.</string>
@@ -89,6 +89,7 @@
     <string name="step3input">The practice:&#160;</string>
     <string name="CopeAheadSaveData_text">Use this page to rehearse. Remember to do something calming after. Long press to delete.</string>
     <string name="copeahead_text">Cope Ahead is a Dialectical Behavior Therapy that helps manage anxiety-provoking situations by rehearsing skills, strategies, and techniques and using them to handle potential stressors and situations effectively. \n\nExamples: \nReality Testing: Distinguishing between your thoughts and feelings from the external world. \nDistraction: The ACCEPTS tool or Thought Blocking</string>
+    <string name="reminder1">Set a daily reminder to use ClearMind</string>
 
 
     <!--

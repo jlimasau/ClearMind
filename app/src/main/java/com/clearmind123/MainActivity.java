@@ -12,16 +12,20 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.TimePickerDialog;
+import android.app.UiModeManager;
 import android.app.backup.BackupAgentHelper;
 import android.app.backup.BackupManager;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -246,15 +250,9 @@ public class MainActivity extends AppCompatActivity {
 
         reminder.setOnClickListener(view -> {
 
-
-
             androidx.appcompat.app.AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(this);
-
-           // builder.setMessage(R.string.remindertext);
-
-
             final androidx.appcompat.app.AlertDialog alert = builder.create();
-           // alert.show();
+
 
 
             TimePickerDialog.OnTimeSetListener onTimeSetListener = new TimePickerDialog.OnTimeSetListener() {
@@ -289,10 +287,26 @@ public class MainActivity extends AppCompatActivity {
 
                 }
             };
-            int style = AlertDialog.THEME_HOLO_DARK;
+            int style = R.style.MyTimePickerDialog;
             TimePickerDialog timePickerDialog = new TimePickerDialog(this, style, onTimeSetListener,hour,minute,false);
-            timePickerDialog.setTitle("Set a daily reminder to use ClearMind");
+            timePickerDialog.setTitle(R.string.reminder1);
+            //timePickerDialog.
             timePickerDialog.show();
+
+
+
+            UiModeManager uiModeManager = (UiModeManager) this.getSystemService(Context.UI_MODE_SERVICE);
+            int mode = uiModeManager.getNightMode();
+            if (mode == UiModeManager.MODE_NIGHT_YES) {
+                timePickerDialog.getButton(DialogInterface.BUTTON_NEGATIVE).setTextColor(Color.WHITE);
+                timePickerDialog.getButton(DialogInterface.BUTTON_POSITIVE).setTextColor(Color.WHITE);
+
+
+
+            }
+            else{
+
+            }
 
 
 
@@ -415,7 +429,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
+//for app rating
     void activateReviewInfo(){
         manager = ReviewManagerFactory.create(this);
         Task<ReviewInfo> managerInfoTask = manager.requestReviewFlow();
@@ -431,7 +445,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-
+//for app rating
     private void startReviewFlow(){
         if(reviewInfo != null){
             Task<Void> flow = manager.launchReviewFlow(MainActivity.this, reviewInfo);

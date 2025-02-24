@@ -1,5 +1,18 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
+
+
+    <style name="MyTimePicker" parent="android:Widget.Material.TimePicker">
+        <item name="android:timePickerMode">spinner</item>
+        <item name="android:textColorPrimary">@color/white</item>
+    </style>
+    <!-- TimePickerDialog Theme -->
+    <style name="MyTimePickerDialog" parent="ThemeOverlay.MaterialComponents.Dialog">
+        <item name="android:timePickerStyle">@style/MyTimePicker</item>
+        <item name ="android:textColorPrimary">#ffffffff</item>
+
+    </style>
+
     <style name="Theme.ClearMind" parent="Theme.AppCompat.Light.DarkActionBar">
 
         <!-- Primary brand color. -->
@@ -21,11 +34,17 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <item name="android:backgroundTint">@color/black</item>
 
+    </style>
 
 
         <!-- Customize your theme here. -->
 
 
 
-    </style>
+  <!--  </style>
+    <style name="AlertDialogTheme" parent="ThemeOverlay.MaterialComponents.Dialog.Alert">
+        <item name="android:textColor">@color/purple_200</item>
+    </style>-->
+
+
 </resources>
