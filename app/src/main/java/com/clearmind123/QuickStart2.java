@@ -201,12 +201,75 @@ public class QuickStart2 extends AppCompatActivity {
 
 
 
+
+
         new TabLayoutMediator(tabLayout, viewPager2, new TabLayoutMediator.TabConfigurationStrategy() {
             @Override
             public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
                 tab.setText(titles.get(position).toString());
                 //gets rid of popup tag
                 TooltipCompat.setTooltipText(tab.view, null);
+
+
+
+                Random rand = new Random();
+                rollbutton.setOnClickListener(new View.OnClickListener() {
+
+                    @Override
+                    public void onClick(View view) {
+                        System.out.println("THIS!!!!!!!!!");
+
+
+                        currentTitle = tab.getText().toString();
+                        loadList();
+
+                        System.out.println("MyArrayList: "+myArrayList);
+                        int bound = myArrayList.size();
+                        int y = 0;
+
+                        for(int x = 0; x<bound; x++) {
+                            if (adapter.getItem(x).contains("✘") == true || adapter.getItem(x).contains("✔")) {
+                                y++;
+                            }
+                        }
+                        if (y >= bound) {
+
+
+                            Toast.makeText(QuickStart2.this, "You Finished!", Toast.LENGTH_LONG).show();
+                            return;
+                        }
+                        int rand1 = rand.nextInt(bound);
+                        String stringy = myArrayList.get(rand1);
+
+                        if (adapter.getItem(rand1).contains("✘") == true || adapter.getItem(rand1).contains("✔")) {
+                            rollbutton.performClick();
+                        }
+                        else {
+
+                            for(int q = 0; q<myArrayList.size(); q++) {
+                                if (adapter.getItem(q).contains("⬅") == true) {
+                                    String newString2 = adapter.getItem(q).replace("⬅", "");
+                                    adapter.remove(adapter.getItem(q));
+                                    adapter.insert(newString2, q);
+                                }
+                            }
+
+
+                            String text2 = adapter.getItem(rand1).toString() + "⬅";
+
+                            adapter.remove(adapter.getItem(rand1));
+                            adapter.insert(text2, rand1);
+                            saveData();
+
+                            viewPager2.setAdapter(adapter1);
+                            viewPager2.setCurrentItem(tab.getPosition(), false);
+
+                            Toast.makeText(QuickStart2.this, "Start with: " + stringy.replace("⬅", ""), Toast.LENGTH_LONG).show();
+
+                        }
+                    }
+                });
+
 
             }
 
@@ -270,10 +333,39 @@ public class QuickStart2 extends AppCompatActivity {
 
 
                 text1 = findViewById(R.id.inputtext);
+
+
+
+
+
+
+
+
+   /*             for(int w=0; w<myArrayList.size(); w++){
+                    if(sharedPreferences.getInt(tempArray1.get(w).replace("✔","").replace("✘","").replace("⬅","").toString(), 99) == 99){
+                        SharedPreferences.Editor editor4 = sharedPreferences.edit();
+
+                        editor4.putInt(myArrayList.get(w), myArrayList.indexOf(myArrayList.get(w))-1);
+                        editor4.commit();
+                    }
+                }*/
+
+
+
+            }
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+                editor.putInt("btnaction1", 0);
+                editor.commit();
+
+
+
+
+            }
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
                 Random rand = new Random();
-
-
-
                 rollbutton.setOnClickListener(new View.OnClickListener() {
 
                     @Override
@@ -330,31 +422,6 @@ public class QuickStart2 extends AppCompatActivity {
                         }
                     }
                 });
-
-   /*             for(int w=0; w<myArrayList.size(); w++){
-                    if(sharedPreferences.getInt(tempArray1.get(w).replace("✔","").replace("✘","").replace("⬅","").toString(), 99) == 99){
-                        SharedPreferences.Editor editor4 = sharedPreferences.edit();
-
-                        editor4.putInt(myArrayList.get(w), myArrayList.indexOf(myArrayList.get(w))-1);
-                        editor4.commit();
-                    }
-                }*/
-
-
-
-            }
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
-                editor.putInt("btnaction1", 0);
-                editor.commit();
-
-
-
-
-            }
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
                 if(tab.getPosition() == titles.size()){
                     System.out.println("THIS ONE!");
 
@@ -735,6 +802,11 @@ public class QuickStart2 extends AppCompatActivity {
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
+
+
+
+
+        tabLayout.selectTab(tabLayout.getTabAt(0));
 
 
     }

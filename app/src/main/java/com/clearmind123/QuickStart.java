@@ -639,53 +639,43 @@ public class QuickStart extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
         Gson gson = new Gson();
         String json = sharedPreferences.getString("quickstartTitles", null);
-        Type type = new TypeToken<ArrayList>() {}.getType();
+        Type type = new TypeToken<ArrayList>() {
+        }.getType();
         titles = gson.fromJson(json, type);
-
 
 
         if (titles == null) {
             titles = new ArrayList<>();
         }
 
-       // SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
+        // SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
 
 
         LinearLayout layout = (LinearLayout) findViewById(R.id.buttonlayout);
         layout.removeAllViewsInLayout();
         layout.setBackgroundColor(Color.WHITE);
 
-       /*
-*/
+        /*
+         */
 
 
         //this is the line of code that was causing the error
         currentTitle = sharedPreferences.getString("CT", null);
-        if (currentTitle == null){
-            if(titles.size()==0){
+        if (currentTitle == null) {
+            if (titles.size() == 0) {
                 //do nothing
-            }
-            else {
+            } else {
                 currentTitle = titles.get(titles.size()).toString();
             }
         }
-
-
 
 
         //add padding to each button
         //keyboard should open automatically when adding
 
 
-
-
-
-
-
-
-
-        numberofbuttons =titles.size();
-        Button[] buttons = new Button[numberofbuttons+1];
+        numberofbuttons = titles.size();
+        Button[] buttons = new Button[numberofbuttons + 1];
 /*        for (int j =0; j< buttons.length-1; j++){
 
 
@@ -693,7 +683,7 @@ public class QuickStart extends AppCompatActivity {
         }*/
 
 
-        for (i = 0; i<numberofbuttons; i++){
+        for (i = 0; i < numberofbuttons; i++) {
             AppCompatButton button = new AppCompatButton(this);
             button.setText(String.valueOf(titles.get(i)));
             //get value and set current title equal to sharedpref value, if no value select set it to the last title
@@ -712,7 +702,7 @@ public class QuickStart extends AppCompatActivity {
                 public void onClick(View view) {
                     currentTitle = button.getText().toString();
                     //set current title in sharedprefs
-                   // SharedPreferences sharedPreferences = this.getSharedPreferences("shared preferences", MODE_PRIVATE);
+                    // SharedPreferences sharedPreferences = this.getSharedPreferences("shared preferences", MODE_PRIVATE);
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     editor.putString("CT", currentTitle);
                     editor.apply();
@@ -726,7 +716,7 @@ public class QuickStart extends AppCompatActivity {
                     editor.putInt("buttony", buttony);
                     editor.commit();
 
-                    for( int k=0; k<titles.size(); k++) {
+                    for (int k = 0; k < titles.size(); k++) {
                         layout.getChildAt(k).setBackgroundColor(R.color.black);
                     }
 
@@ -738,7 +728,7 @@ public class QuickStart extends AppCompatActivity {
                     layout.getChildAt(whichbutton).setBackgroundColor(0);
                     //loadTitles();
 
-                   // System.out.println("number of buttons: " + numberofbuttons);
+                    // System.out.println("number of buttons: " + numberofbuttons);
                 }
             });
 
@@ -755,8 +745,8 @@ public class QuickStart extends AppCompatActivity {
                     popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                         @Override
                         public boolean onMenuItemClick(MenuItem menuItem) {
-                            switch (menuItem.getTitle().toString()){
-                                case "Edit" :
+                            switch (menuItem.getTitle().toString()) {
+                                case "Edit":
 
                                     input = new EditText(QuickStart.this);
                                     input.setMaxLines(1);
@@ -770,28 +760,26 @@ public class QuickStart extends AppCompatActivity {
                                                 public void onClick(DialogInterface dialog, int id) {
 
 
+                                                    // whichbutton = titles.indexOf(String.valueOf(button.getText())+1);
+
+                                                    //titles.get(titles.indexOf(String.valueOf(button.getText()))).replace(String.valueOf(button.getText()),String.valueOf(input.getText()));
+                                                    titles.set(titles.indexOf(String.valueOf(button.getText())), String.valueOf(input.getText()));
+                                                    System.out.println(titles);
+                                                    currentTitle = String.valueOf(input.getText());
+                                                    saveData();
+                                                    whichbutton = titles.indexOf(currentTitle);
 
 
-                                                        // whichbutton = titles.indexOf(String.valueOf(button.getText())+1);
-
-                                                        //titles.get(titles.indexOf(String.valueOf(button.getText()))).replace(String.valueOf(button.getText()),String.valueOf(input.getText()));
-                                                        titles.set(titles.indexOf(String.valueOf(button.getText())), String.valueOf(input.getText()));
-                                                        System.out.println(titles);
-                                                        currentTitle = String.valueOf(input.getText());
-                                                        saveData();
-                                                        whichbutton = titles.indexOf(currentTitle);
-
-
-                                                        SharedPreferences.Editor editor = sharedPreferences.edit();
-                                                        editor.putString("CT", currentTitle);
-                                                        editor.apply();
-                                                        saveTitle();
-                                                        System.out.println("WHICH BUTTON:" + whichbutton);
-                                                        editor.putInt("whichbutton", whichbutton);
-                                                        editor.commit();
-                                                        Intent intent = getIntent();
-                                                        startActivity(intent);
-                                                        //scroll to current title here
+                                                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                                                    editor.putString("CT", currentTitle);
+                                                    editor.apply();
+                                                    saveTitle();
+                                                    System.out.println("WHICH BUTTON:" + whichbutton);
+                                                    editor.putInt("whichbutton", whichbutton);
+                                                    editor.commit();
+                                                    Intent intent = getIntent();
+                                                    startActivity(intent);
+                                                    //scroll to current title here
 
 
                                                 }
@@ -800,8 +788,6 @@ public class QuickStart extends AppCompatActivity {
                                     alert.setView(input);
                                     alert.show();
                                     alert.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(R.color.black);
-
-
 
 
                                     //get title.string
@@ -820,20 +806,19 @@ public class QuickStart extends AppCompatActivity {
 
                                     break;
 
-                                case "Delete" :
+                                case "Delete":
 
                                     String btntext = String.valueOf(button.getText());
                                     System.out.println(btntext);
                                     titles.remove(titles.indexOf(btntext));
                                     saveTitle();
 
-                                    if(titles.size()==0){
-                                        currentTitle= null;
-                                    }
-                                    else {
+                                    if (titles.size() == 0) {
+                                        currentTitle = null;
+                                    } else {
                                         currentTitle = titles.get(titles.size() - 1);
                                     }
-                                    whichbutton = titles.size()-1;
+                                    whichbutton = titles.size() - 1;
                                     SharedPreferences.Editor editor = sharedPreferences.edit();
                                     editor.putString("CT", currentTitle);
                                     editor.putInt("whichbutton", whichbutton);
@@ -882,6 +867,7 @@ public class QuickStart extends AppCompatActivity {
             });
             buttons[i] = button;
         }
+
 
 
 
