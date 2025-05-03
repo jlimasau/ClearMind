@@ -211,7 +211,6 @@ public class QuickStart2 extends AppCompatActivity {
                 TooltipCompat.setTooltipText(tab.view, null);
 
 
-
                 Random rand = new Random();
                 rollbutton.setOnClickListener(new View.OnClickListener() {
 
